@@ -91,6 +91,7 @@ public class GameFrame extends JFrame {
         x = to.getPosition().getX();
         y = to.getPosition().getY();
 
+        Player curr = board.getCurrentPlayer();
         if (board.getBreacher() != null) {
             String[] choices = {"Q", "R", "B", "KN"};
             String choice = (String) JOptionPane.showInputDialog(this, "Choose a preferred piece",
@@ -116,11 +117,11 @@ public class GameFrame extends JFrame {
             }
 
             board.setChosenPieceTo(x, y, add);
+            curr.addPiece(add);
             board.setBreacher(null);
         }
 
         cells[x][y].setPiece(to.getPieceOnCell());
-        Player curr = board.getCurrentPlayer();
 
         if (board.getCurrentPlayerEnum() == PlayerEnum.PLAYER1) {
             player1Prisoners.setText(board.getPlayer1().getName() + "'s prisoners: " + board.getPrisonersOf(curr));

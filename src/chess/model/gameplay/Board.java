@@ -97,7 +97,6 @@ public class Board {
                 foundCheck = p.makesCheck(this);
                 currentPlayer.addPrisoner(killed);
             } else {
-                System.out.println("Gebasz");
                 reverseSimulateStep(to.getPieceOnCell(), from, killed, currentPlayer, opponent);
                 to.setPiece(killed);
                 execute = false;
